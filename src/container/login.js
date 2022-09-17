@@ -17,23 +17,31 @@ function Login(props) {
     }
   }
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   const [pass, setPass] = useState("");
   var check;
   const retrieve_data=()=>{
+    var id = email.split("@")
     let user={
-        name,pass
+        email,pass
   }
     database()
-  .ref('/users/')
+  .ref(`/users/${id[0]}/`)
   .once('value')
   .then(snapshot => {
-    console.log('User data: ', snapshot.val());
+    console.log('User data: ', snapshot.exists());
     check=snapshot.val()
-    if (user.name in check){
+    if (snapshot.exists()){
+      if(snapshot.val().pass==pass){
       console.log("Successfully login");
       storeData(user)
-      ToastAndroid.show("Successfully Login !", ToastAndroid.SHORT);
+      ToastAndroid.show("Successfully Login!", ToastAndroid.SHORT);
       props.navigation.navigate("Main");
+      }
+      else{
+        ToastAndroid.show("Wrong Password!", ToastAndroid.SHORT);
+      }
     }
     else{
       console.log("Please Signup first");
@@ -43,39 +51,39 @@ function Login(props) {
   });
 
   
-  database()
-  .ref('/donors/')
-  .once('value')
-  .then(snapshot => {
-    console.log('User data: ', snapshot.val());
-    const donorCheck=snapshot.val()
-    if (user.Name in donorCheck){
-      console.log("Loger and donor")
-      LogerDonor(user.Name);
-    }
-    else{
-      console.log("Loger and but not donor")
-      LogerDonor("");
-    }
-  });
-  const LogerDonor = async (logerdonor) => {
-    try {
-      const jsonValue = JSON.stringify(logerdonor)
-      await AsyncStorage.setItem('@LOGERDONOR', jsonValue)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  // database()
+  // .ref('/donors/')
+  // .once('value')
+  // .then(snapshot => {
+  //   console.log('User data: ', snapshot.val());
+  //   const donorCheck=snapshot.val()
+  //   if (user.Name in donorCheck){
+  //     console.log("Loger and donor")
+  //     LogerDonor(user.Name);
+  //   }
+  //   else{
+  //     console.log("Loger and but not donor")
+  //     LogerDonor("");
+  //   }
+  // });
+  // const LogerDonor = async (logerdonor) => {
+  //   try {
+  //     const jsonValue = JSON.stringify(logerdonor)
+  //     await AsyncStorage.setItem('@LOGERDONOR', jsonValue)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
 
   }
   return (
 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'white' }}>
-      <View>
-        <Text style={{ fontSize: 52, color: 'white', fontWeight: 'bold', backgroundColor:'red', width:360, textAlign:'center', margin:30 }}>LOGIN</Text>
+      <View style={{backgroundColor: "red",width:"90%", margin:20,borderTopLeftRadius:60,borderBottomRightRadius:60,padding:5,marginBottom:40}}>
+        <Text style={{ fontSize: 45, color: 'white', fontWeight: 'bold', textAlign:'center' }}>LOGIN</Text>
       </View>
       <View style={{ borderWidth: 3, borderColor: "red", width: "80%", margin: 20 }}>
-        <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
+        <TextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email" />
       </View>
       <View style={{ borderWidth: 3, borderColor: "red", width: "80%", margin: 20 }}>
         <TextInput secureTextEntry={true} value={pass} onChangeText={(e) => setPass(e)} placeholder="Password" />
