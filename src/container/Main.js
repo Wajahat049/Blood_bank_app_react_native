@@ -11,10 +11,10 @@ function Main(props) {
     <ScrollView style={{ backgroundColor: "white" }}>
 
       <View>
-        <Image source={require("../images/bottombanner.png")} style={{ width: "100%", height: 80, }} />
+        <Image source={require("../images/bottombanner.png")} style={{ width: "100%", height: 50, }} />
         <Text style={{ fontSize: 48, color: '#cd0404', fontWeight: 'bold', width: "100%", textAlign: 'center', }}>BLOOD BANK</Text>
-        <Image source={{ uri: "https://img.freepik.com/free-vector/june-blood-donor-day-text-icon_1308-110811.jpg?w=1060&t=st=1663406186~exp=1663406786~hmac=4499362f5af819df96a50291b175983ad8408f56e1878a97e777f1c9646d8489" }} style={{ width: "100%", height: 170, marginBottom: 15 }} />
-        <Image source={require("../images/topBanner.png")} style={{ width: "100%", height: 80, marginBottom: 15 }} />
+        <Image source={require("../images/banner.png")} style={{ width: "80%", height: 120,alignSelf:"center"}} />
+        <Image source={require("../images/topBanner.png")} style={{ width: "100%", height: 50, marginBottom: 15 }} />
       </View>
 
       <View style={{ flexDirection: "row" }}>
