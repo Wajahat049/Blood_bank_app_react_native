@@ -150,7 +150,7 @@ function BecomeDonor(props) {
             </View>
 
             <Pressable
-              style={[styles.button, styles.buttonClose]}
+              style={[styles.buttonModal, styles.buttonCloseModal]}
               onPress={() => setModalVisible(!modalVisible)}
             >
               <Text style={styles.textStyle}>Close</Text>
@@ -191,12 +191,12 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
+  buttonModal: {
     borderRadius: 10,
     padding: 10,
     elevation: 2
   },
-  buttonClose: {
+  buttonCloseModal: {
     backgroundColor: "red",
     marginTop: 20
   },
