@@ -34,18 +34,42 @@ function Search() {
     <ScrollView >
       <SearchBar style={{ backgroundColor: "red", color: "white" }}
         placeholder="Type any blood group here like AB+"
+        placeholderTextColor={"white"}
         onChangeText={(search) => setsearch(search)}
         value={search} />
       {
         newinfo.map((element) => {
           return (
-            <View key={Math.random() * (100 - 1) + 1} style={{ margin: 10, padding: 10, flex: 1, backgroundColor: "red" }}>
-              <Text style={{ color: "white", fontSize: 20 }}>NAME:    {JSON.stringify(element.name)}</Text>
-              <Text style={{ color: "white", fontSize: 20 }}>PHONE:   {JSON.stringify(element.phone)}</Text>
-              <Text style={{ color: "white", fontSize: 20 }}>BLOOD:   {JSON.stringify(element.blood)}</Text>
-              <Text style={{ color: "white", fontSize: 20 }}>HEALTH:  {JSON.stringify(element.health)}</Text>
-              <Text style={{ color: "white", fontSize: 20 }}>ADDRESS: {JSON.stringify(element.address)}</Text>
-              <Text style={{ color: "white", fontSize: 20 }}>EMAIL:   {JSON.stringify(element.email)}</Text>
+            <View key={Math.random() * (100 - 1) + 1} style={{
+              margin: 10, padding: 10, flex: 1, backgroundColor: "red", borderColor: "black", borderWidth: 2,
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+
+              elevation: 5,
+            }}>
+              <Text style={{ color: "white", fontSize: 18 }}>Name:
+                <Text style={{ fontWeight: "bold" }}> {JSON.stringify(element.name)} </Text>
+              </Text>
+              <Text style={{ color: "white", fontSize: 18 }}>Phone No.:
+                <Text style={{ fontWeight: "bold" }}>  {JSON.stringify(element.phone)}</Text>
+              </Text>
+              <Text style={{ color: "white", fontSize: 18 }}>Blood Group:
+                <Text style={{ fontWeight: "bold" }}> {JSON.stringify(element.blood)}</Text>
+              </Text>
+              <Text style={{ color: "white", fontSize: 18 }}>Health:
+                <Text style={{ fontWeight: "bold" }}> {JSON.stringify(element.health)}</Text>
+              </Text>
+              <Text style={{ color: "white", fontSize: 18 }}>Address:
+                <Text style={{ fontWeight: "bold" }}> {JSON.stringify(element.address)}</Text>
+              </Text>
+              <Text style={{ color: "white", fontSize: 18 }}>Email:
+                <Text style={{ fontWeight: "bold" }}>  {JSON.stringify(element.email)}</Text>
+              </Text>
             </View>)
 
         })
