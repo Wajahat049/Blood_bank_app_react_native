@@ -27,19 +27,7 @@ function Profile(props) {
   }, [])
 
 
-  // const getuserDonor = async () => {
-  //   const jsonValue = await AsyncStorage.getItem('@LOGERDONOR');
-  //   global.userDonor = JSON.parse(jsonValue)
-
-  // }
-  // getuserDonor()
-  // database().ref("/donors/" + global.userDonor + "/donor/").once('value').then(snapshot => {
-  //   setInfo(snapshot.val())
-  //   console.log(Info)
-  // });
-
-
-  if (Info == null || Info.name == null) {
+  if (Info == null || Info.email == null) {
     return (
       <View style={{ backgroundColor: 'red', width: "100%" }}>
         <Text style={{ color: 'white', fontSize: 25, fontWeight: 'bold', margin: 3, marginLeft: 15, padding: 10 }}>
