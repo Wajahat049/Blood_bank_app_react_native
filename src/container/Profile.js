@@ -1,6 +1,6 @@
 import { Image, Text, View } from 'react-native';
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import database from "@react-native-firebase/database";
 
@@ -8,16 +8,35 @@ import database from "@react-native-firebase/database";
 
 function Profile(props) {
   const [Info, setInfo] = useState("")
-  const getuserDonor = async () => {
-    const jsonValue = await AsyncStorage.getItem('@LOGERDONOR');
-    global.userDonor = JSON.parse(jsonValue)
 
-  }
-  getuserDonor()
-  database().ref("/donors/" + global.userDonor + "/donor/").once('value').then(snapshot => {
-    setInfo(snapshot.val())
-    console.log(Info)
-  });
+  useEffect(() => {
+
+    const getuserDonor = async () => {
+      const jsonValue = await AsyncStorage.getItem('@DONOR');
+      global.userDonor = JSON.parse(jsonValue)
+      console.log("jsonValue", global.userDonor)
+
+    }
+    getuserDonor()
+
+    database().ref("/donors/" + global.userDonor.email.split("@")[0]).once('value').then(snapshot => {
+      setInfo(snapshot.val())
+      console.log("Profile Info", snapshot.val())
+    });
+
+  }, [])
+
+
+  // const getuserDonor = async () => {
+  //   const jsonValue = await AsyncStorage.getItem('@LOGERDONOR');
+  //   global.userDonor = JSON.parse(jsonValue)
+
+  // }
+  // getuserDonor()
+  // database().ref("/donors/" + global.userDonor + "/donor/").once('value').then(snapshot => {
+  //   setInfo(snapshot.val())
+  //   console.log(Info)
+  // });
 
 
   if (Info == null || Info.name == null) {

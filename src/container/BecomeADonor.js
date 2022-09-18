@@ -15,25 +15,30 @@ function BecomeDonor(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [blood, setBlood] = useState("");
   const [gender, setGender] = useState("");
   const [health, setHealth] = useState("");
   const [address, setAddress] = useState("");
+  const [blood, setblood] = useState("");
+
 
   const [modalVisible, setModalVisible] = useState(false);
 
 
   console.log(props.logerDonor)
+
   const save_data = () => {
 
     let donor = {
       name, gender, email, phone, address, blood, health
     }
 
+    var emailSplit = email.split("@")[0]
+    console.log("email", emailSplit)
 
-    database().ref(`/donors/${donor.name}`).update({ donor })
+    database().ref(`/donors/${emailSplit}`).update(donor)
 
     const storeData = async (donor) => {
+      console.log("donor", donor)
       try {
         const jsonValue = JSON.stringify(donor)
         await AsyncStorage.setItem('@DONOR', jsonValue)
@@ -44,6 +49,11 @@ function BecomeDonor(props) {
     storeData(donor);
     ToastAndroid.show("You are now a donor", ToastAndroid.SHORT)
     props.navigation.navigate("Profile");
+  }
+
+  const setBloodType = (blood) => {
+    setblood(blood)
+    setModalVisible(false)
   }
 
 
@@ -58,7 +68,7 @@ function BecomeDonor(props) {
         <View
           style={styles.footer}
         >
-          <ImageBackground source={require("../images/bgBecomeADonor.png")} style={{width: "100%",}}>
+          <ImageBackground source={require("../images/bgBecomeADonor.png")} style={{ width: "100%", }}>
             <ScrollView>
 
               <Text style={{ fontSize: 18, color: 'red', marginBottom: 10, textAlign: "center" }}> {(props.logerDonor != "") ? "You are already a donor. Your donor information will be updated" : ""}</Text>
