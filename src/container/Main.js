@@ -25,9 +25,9 @@ function Main(props) {
 
         <TouchableOpacity
           style={styles.cardBox}
-          onPress={() => props.navigation.navigate("BloodBanks")}>
+          onPress={() => props.navigation.navigate("Blood Banks")}>
           <Image source={require("../images/BloodBankImg.png")} style={styles.cardImg} />
-          <Text style={styles.cardText}>BLODD BANK</Text>
+          <Text style={styles.cardText}>BLOOD BANK</Text>
         </TouchableOpacity>
       </View>
 
@@ -41,7 +41,7 @@ function Main(props) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.cardBox}
-          onPress={() => props.navigation.navigate("BecomeADonor")}>
+          onPress={() => props.navigation.navigate("Become A Donor")}>
           <Image source={require("../images/BeADonor.png")} style={styles.cardImg} />
           <Text style={styles.cardText}>BECOME A DONOR</Text>
         </TouchableOpacity>
@@ -51,13 +51,13 @@ function Main(props) {
       <View style={{ flexDirection: "row",alignSelf:"center",marginBottom:30  }}>
         <TouchableOpacity
           style={styles.cardBox}
-          onPress={() => props.navigation.navigate("AllRequests")}>
+          onPress={() => props.navigation.navigate("All Requests")}>
           <Image source={{uri:("https://cdn-icons-png.flaticon.com/512/3127/3127109.png")}} style={styles.cardImg} />
           <Text style={styles.cardText}>ALL REQUESTS</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.cardBox}
-          onPress={() => props.navigation.navigate("BecomeADonor")}>
+          onPress={() => props.navigation.navigate("Blood Request")}>
           <Image source={{uri:("https://cdn-icons-png.flaticon.com/512/1056/1056542.png")}} style={styles.cardImg} />
           <Text style={styles.cardText}>REQUEST FOR BLOOD</Text>
         </TouchableOpacity>

@@ -28,7 +28,7 @@ function Navigation() {
         <Stack.Screen name="Blood Banks" component={BloodBanks} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="Blood Request" component={BloodRequest} />
-        <Stack.Screen name="AllRequests" component={AllRequests} />
+        <Stack.Screen name="All Requests" component={AllRequests} />
 
         
 
