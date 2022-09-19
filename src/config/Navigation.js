@@ -9,6 +9,7 @@ import Profile from '../container/Profile';
 import BecomeADonor from '../container/BecomeADonor';
 import BloodBanks from '../container/BloodBanks';
 import Search from '../container/Search';
+import AllRequests from '../container/AllRequests';
 
 
 const Stack = createStackNavigator();
@@ -25,6 +26,8 @@ function Navigation() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="BloodBanks" component={BloodBanks} />
         <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="AllRequests" component={AllRequests} />
+
         
 
       </Stack.Navigator>

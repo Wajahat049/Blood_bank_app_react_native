@@ -17,7 +17,7 @@ function Main(props) {
         <Image source={require("../images/topBanner.png")} style={{ width: "100%", height: 50, marginBottom: 15 }} />
       </View>
 
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row",alignSelf:"center" }}>
         <TouchableOpacity style={styles.cardBox} onPress={() => props.navigation.navigate("Search")}>
           <Image source={require("../images/FindDonor.png")} style={styles.cardImg} />
           <Text style={styles.cardText}>FIND A DONOR</Text>
@@ -32,7 +32,7 @@ function Main(props) {
       </View>
 
 
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row",alignSelf:"center" }}>
         <TouchableOpacity
           style={styles.cardBox}
           onPress={() => props.navigation.navigate("Profile")}>
@@ -44,6 +44,22 @@ function Main(props) {
           onPress={() => props.navigation.navigate("BecomeADonor")}>
           <Image source={require("../images/BeADonor.png")} style={styles.cardImg} />
           <Text style={styles.cardText}>BECOME A DONOR</Text>
+        </TouchableOpacity>
+      </View>
+
+
+      <View style={{ flexDirection: "row",alignSelf:"center",marginBottom:30  }}>
+        <TouchableOpacity
+          style={styles.cardBox}
+          onPress={() => props.navigation.navigate("AllRequests")}>
+          <Image source={{uri:("https://cdn-icons-png.flaticon.com/512/3127/3127109.png")}} style={styles.cardImg} />
+          <Text style={styles.cardText}>ALL REQUESTS</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.cardBox}
+          onPress={() => props.navigation.navigate("BecomeADonor")}>
+          <Image source={{uri:("https://cdn-icons-png.flaticon.com/512/1056/1056542.png")}} style={styles.cardImg} />
+          <Text style={styles.cardText}>REQUEST FOR BLOOD</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -58,6 +74,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     margin: 10,
     borderRadius: 5,
+    borderColor:"#bfbfbf",
+    borderWidth:1.5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -69,8 +87,8 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
   cardImg: {
-    width: 100,
-    height: 100,
+    width: 110,
+    height: 110,
     marginTop: 30,
     marginLeft: 30,
     marginRight: 30,

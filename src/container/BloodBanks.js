@@ -71,7 +71,7 @@ function BloodBanks(props) {
         </View>
         <Text style={[styles.cardText, { marginTop: 10 }]}>Name:    <Text style={{ color: "red" }}>Sahara Blood Bank</Text> </Text>
         <Text style={styles.cardText}>Phone:    <Text style={{ color: "red" }}>(021) 36644490</Text> </Text>
-        <Text style={styles.cardText}>Address:  <Text style={{ color: "red" }}>M.A Jinnah Road </Text> </Text>
+        <Text style={styles.cardText}>Address:  <Text style={{ color: "red" }}>M.A Jinnah Road </Text> </Text>      
       </TouchableOpacity>
 
     </ScrollView>
@@ -110,5 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     margin: 5,
     color: "#cd0404",
-  }
+  },
+  
 })
