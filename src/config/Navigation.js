@@ -9,6 +9,7 @@ import Profile from '../container/Profile';
 import BecomeADonor from '../container/BecomeADonor';
 import BloodBanks from '../container/BloodBanks';
 import Search from '../container/Search';
+import BloodRequest from '../container/BloodRequest';
 
 
 const Stack = createStackNavigator();
@@ -21,10 +22,11 @@ function Navigation() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="BecomeADonor" component={BecomeADonor} />
+        <Stack.Screen name="Become A Donor" component={BecomeADonor} />
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="BloodBanks" component={BloodBanks} />
+        <Stack.Screen name="Blood Banks" component={BloodBanks} />
         <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="Blood Request" component={BloodRequest} />
         
 
       </Stack.Navigator>
