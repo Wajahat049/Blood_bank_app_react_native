@@ -86,21 +86,6 @@ function Profile(props) {
         </View>
       </>
 
-      // <View style={{ backgroundColor: 'red' }}>
-      //   <Image source={require("../images/background.png")} style={{ width: "100%", height: 200, }} />
-      //   <Image source={require("../images/ProfileIcon.png")} style={{ width: "60%", height: 200, marginLeft: 70, }} />
-      //   <View style={{ backgroundColor: 'red' }}>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Name : {Info.name}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Blood : {Info.blood}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Health Condition : {Info.health}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Email : {Info.email}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Contact : {Info.phone}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Gender : {Info.gender}</Text>
-      //     <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', margin: 3, marginLeft: 15 }}>Address : {Info.address}</Text>
-      //   </View>
-      // </View>
-
-
     );
   };
 }
