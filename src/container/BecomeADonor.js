@@ -35,7 +35,9 @@ function BecomeDonor(props) {
     var emailSplit = email.split("@")[0]
     console.log("email", emailSplit)
 
-    database().ref(`/donors/${emailSplit}`).update(donor)
+    database().ref(`/donors/${emailSplit}`).update({
+      name, gender, email, phone, address, blood, health
+    })
 
     const storeData = async (donor) => {
       console.log("donor", donor)

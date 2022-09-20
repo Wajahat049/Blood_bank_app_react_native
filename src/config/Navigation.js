@@ -35,7 +35,7 @@ function Navigation() {
         <Stack.Screen options={{title: 'Profile',...myheaderStyle}} name="Profile" component={Profile} />
         <Stack.Screen options={{title: 'Blood Banks',...myheaderStyle}} name="Blood Banks" component={BloodBanks} />
         <Stack.Screen options={{title: 'Search',...myheaderStyle}} name="Search" component={Search} />
-        <Stack.Screen options={{title: 'BLood Request',...myheaderStyle}} name="Blood Request" component={BloodRequest} />
+        <Stack.Screen options={{title: 'Blood Request',...myheaderStyle}} name="Blood Request" component={BloodRequest} />
         <Stack.Screen options={{title: 'All Request',...myheaderStyle}} name="All Requests" component={AllRequests} />
 
         

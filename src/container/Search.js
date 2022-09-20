@@ -18,18 +18,20 @@ function Search() {
   database().ref('/donors').once("value").then(snapshot => {
     var result = snapshot.val();
     var lst1 = Object.values(result)
-    for (var i = 0; i < lst1.length; i++) {
-      global.DATA.push(lst1[i].donor)
-    }
+    console.log("LST1",lst1)
+    // for (var i = 0; i < lst1.length; i++) {
+    //   global.DATA.push(lst1[i].donor)
+    // }
     
-    for (var i = 0; i < global.DATA.length; i++) {
-      console.log("BLOOD",global.DATA[i].blood)
-      var blood =  global.DATA[i].blood
+    for (var i = 0; i < lst1.length; i++) {
+      console.log("BLOOD",lst1[i].blood)
+      var blood =  lst1[i].blood
       if (blood.includes(search)) {
-        console.log(global.DATA[i])
-        global.NEWDATA.push(global.DATA[i])
+        global.NEWDATA.push(lst1[i])
       }
     }
+    // console.log(global.NEWDATA)
+
     setnewinfo(global.NEWDATA)
   })}
 },[search])
