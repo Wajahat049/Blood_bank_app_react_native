@@ -15,20 +15,28 @@ import AllRequests from '../container/AllRequests';
 
 const Stack = createStackNavigator();
 
+const myheaderStyle = { headerStyle: {
+  backgroundColor: 'maroon',
+},
+headerTintColor: 'white',
+headerTitleStyle: {
+  fontWeight: 'bold',
+},}
+
 function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Become A Donor" component={BecomeADonor} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Blood Banks" component={BloodBanks} />
-        <Stack.Screen name="Search" component={Search} />
-        <Stack.Screen name="Blood Request" component={BloodRequest} />
-        <Stack.Screen name="All Requests" component={AllRequests} />
+        <Stack.Screen options={{title: 'Welcome to Blood Bank',...myheaderStyle}} name="Home" component={Home} />
+        <Stack.Screen options={{title: 'Login',...myheaderStyle}} name="Login" component={Login} />
+        <Stack.Screen options={{title: 'Signup',...myheaderStyle}} name="SignUp" component={SignUp} />
+        <Stack.Screen options={{title: 'Dashboard',...myheaderStyle}} name="Main" component={Main} />
+        <Stack.Screen options={{title: 'Become a Donor',...myheaderStyle}} name="Become A Donor" component={BecomeADonor} />
+        <Stack.Screen options={{title: 'Profile',...myheaderStyle}} name="Profile" component={Profile} />
+        <Stack.Screen options={{title: 'Blood Banks',...myheaderStyle}} name="Blood Banks" component={BloodBanks} />
+        <Stack.Screen options={{title: 'Search',...myheaderStyle}} name="Search" component={Search} />
+        <Stack.Screen options={{title: 'BLood Request',...myheaderStyle}} name="Blood Request" component={BloodRequest} />
+        <Stack.Screen options={{title: 'All Request',...myheaderStyle}} name="All Requests" component={AllRequests} />
 
         
 
