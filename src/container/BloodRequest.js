@@ -4,6 +4,7 @@ import {
     Modal,
     TouchableOpacity,
     Pressable,
+    ToastAndroid
 } from 'react-native';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
@@ -13,7 +14,7 @@ import { Picker } from '@react-native-picker/picker';
 
 
 
-function BloodRequest() {
+function BloodRequest(props) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [gender, setGender] = useState("");
@@ -49,6 +50,8 @@ function BloodRequest() {
     const sendReq = () => {
         database().ref(`/requests`).push().set({ id, name, status: "Pending", gender, email, hospital: selectedLanguage, phone, blood, date: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}` })
         console.log("send request")
+        ToastAndroid.show("Successfully send request", ToastAndroid.SHORT)
+        props.navigation.navigate("All Requests");
     }
 
 
