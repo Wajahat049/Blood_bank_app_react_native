@@ -8,21 +8,25 @@ import database from "@react-native-firebase/database";
 
 function Profile(props) {
   const [Info, setInfo] = useState("")
+  // const [id, setId] = useState("")
 
   useEffect(() => {
-
+    var id;
     const getuserDonor = async () => {
-      const jsonValue = await AsyncStorage.getItem('@DONOR');
-      global.userDonor = JSON.parse(jsonValue)
-      console.log("jsonValue", global.userDonor.email.split("@")[0])
+      const jsonValue = await AsyncStorage.getItem('@USER');
+      var val = JSON.parse(jsonValue)
+      id = val.email.split("@")[0]
+      console.log("jsonValue", id)
 
     }
-    getuserDonor()
+    getuserDonor().then(()=>{
+      database().ref(`/donors/${id}`).once('value').then(snapshot => {
+        setInfo(snapshot.val())
+        console.log("Profile Info", snapshot.val())
+      });
+    })
 
-    database().ref("/donors/" + global.userDonor.email.split("@")[0]).once('value').then(snapshot => {
-      setInfo(snapshot.val())
-      console.log("Profile Info", snapshot.val())
-    });
+    
 
   }, [])
 
