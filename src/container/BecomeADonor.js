@@ -22,9 +22,28 @@ function BecomeDonor(props) {
 
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [ifDonor, setIfDonor] = useState(false);
 
 
-  console.log(props.logerDonor)
+
+  console.log("log",props.logerDonor)
+
+  useEffect(()=>{
+    var id;
+    const getuserDonor = async () => {
+      const jsonValue = await AsyncStorage.getItem('@USER');
+      var val = JSON.parse(jsonValue)
+      id = val.email.split("@")[0]
+      console.log("jsonValue", id)
+
+    }
+    getuserDonor().then(()=>{
+      database().ref(`/donors/${id}`).once('value').then(snapshot => {
+        setIfDonor(snapshot.exists())
+        // console.log("Profile Info", snapshot.val())
+    })})
+
+  },[])
 
   const save_data = () => {
 
@@ -73,7 +92,7 @@ function BecomeDonor(props) {
           <ImageBackground source={require("../images/bgBecomeADonor.png")} style={{ width: "100%", }}>
             <ScrollView>
 
-              <Text style={{ fontSize: 18, color: 'red', marginBottom: 10, textAlign: "center" }}> {(props.logerDonor != "") ? "You are already a donor. Your donor information will be updated" : ""}</Text>
+              <Text style={{ fontSize: 18, color: 'red', marginBottom: 10, textAlign: "center" }}> {(ifDonor) ? "You are already a donor. Your donor information will be updated" : ""}</Text>
 
               <View style={styles.inputStyle}>
                 <TextInput value={name} onChangeText={(e) => setName(e)} placeholder="Name" />
